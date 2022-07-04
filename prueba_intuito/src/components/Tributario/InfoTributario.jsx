@@ -5,7 +5,6 @@ function InfoTributario(props) {
 
     const { dataTributaria, setData } = props;
 
-    console.log(dataTributaria)
     const handleAmbiente = (e) => {
         setData({ ...dataTributaria, ambiente: e })
     }
