@@ -1,0 +1,11 @@
+.textForm{
+    font-weight: bold;
+}
+.formText{
+    text-align: justify !important;
+    margin-left: 890px;
+    padding: 2px;
+}
+.listContainer{
+    padding: 8px;
+}

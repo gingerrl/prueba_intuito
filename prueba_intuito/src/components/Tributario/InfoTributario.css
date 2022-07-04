@@ -1,0 +1,11 @@
+.tributario{
+    font-weight: bold;
+    margin: 10px 2px 10px;
+}
+
+.titleTributario{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}

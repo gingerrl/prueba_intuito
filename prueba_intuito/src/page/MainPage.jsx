@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import InfoNotaCredito from '../components/NotaCredito/InfoNotaCredt';
 import InfoTributario from '../components/Tributario/InfoTributario';
 import ValorImpuesto from '../components/ValorImpuesto/valorImpuesto';
-import  saveData  from '../Actions/FormActions'
+import saveData from '../Actions/FormActions'
 import { connect, useDispatch } from 'react-redux';
+import "../components/Tributario/InfoTributario.css";
+import "../components/NotaCredito/notaCredito.css"
+import "../components/ValorImpuesto/valorImpuesto.css"
+import Listado from '../components/Listado/ListadoForm';
+import "../page/MainPage.css"
 function MainPage() {
   const dispatch = useDispatch();
 
@@ -25,6 +30,7 @@ function MainPage() {
     dirEstablecimiento: null,
     tipoIdentificacionComprador: null,
     razonSocialComprador: null,
+    identificacionComprador: null,
     contribuyenteEspecial: null,
     obligadoContabilidad: null,
     rise: null,
@@ -41,32 +47,64 @@ function MainPage() {
     valorDevolucion: null,
   })
 
-console.log(data)
+  const handleSave = (data) => {
+    dispatch(saveData(data))
+    setData({
+      ambiente: null,
+      tipoEmision: null,
+      razonSocial: null,
+      nombreComercial: null,
+      ruc: null,
+      claveAcceso: null,
+      codDoc: null,
+      estab: null,
+      ptoEmi: null,
+      secuencial: null,
+      dirMatriz: null,
+      agenteRetencion: null,
+      contribuyenteRimpe: null,
+      fechaEmision: null,
+      dirEstablecimiento: null,
+      tipoIdentificacionComprador: null,
+      razonSocialComprador: null,
+      identificacionComprador: null,
+      contribuyenteEspecial: null,
+      obligadoContabilidad: null,
+      rise: null,
+      codDocModificado: null,
+      numDocModificado: null,
+      fechaEmisionDoc: null,
+      totalSinImpuesto: null,
+      valorModificacion: null,
+      moneda: null,
+      codigo: null,
+      codigoPorcentaje: null,
+      baseImponible: null,
+      valor: null,
+      valorDevolucion: null,
+    })
 
-const handleSave=(data) =>{
-  console.log(data)
-  dispatch (saveData(data))
-
-}
+  }
 
   return (
-    <div className='contenedor'>
-      <div className='item-titulo'>
+    <div >
+      <div className='titleForm'>
         <span>Formulario</span>
       </div>
-      <div className='item-buscador'>
+      <div className='tributario'>
         <InfoTributario dataTributaria={data} setData={setData} />
       </div>
-      <div className='item-tabla'>
-        <InfoNotaCredito dataNota={data} setData={setData}  />
+      <div className='notaCredito'>
+        <InfoNotaCredito dataNota={data} setData={setData} />
       </div>
-      <div className='item-info'>
+      <div className='impuesto'>
         <ValorImpuesto dataValor={data} setData={setData} />
       </div>
-      <button className='primaryButton' onClick={() => handleSave(data)} > <i className="fa fa-plus" aria-hidden="true"></i> Guardar</button>
+      <button onClick={() => handleSave(data)} > Guardar</button>
+      <Listado />
 
     </div>
   )
 }
 
-export default connect(null, ) (MainPage);
+export default connect(null,)(MainPage);

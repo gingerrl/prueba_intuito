@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 function InfoNotaCredito(props) {
 
-    const {dataNota, setData} = props;
+    const { dataNota, setData } = props;
 
     const handleFechaEmision = (e) => {
         setData({ ...dataNota, fechaEmision: e })
@@ -17,7 +17,9 @@ function InfoNotaCredito(props) {
     const handleRazonSocial = (e) => {
         setData({ ...dataNota, razonSocialComprador: e })
     }
-
+    const handleIdentificacionComprador = (e) => {
+        setData({ ...dataNota, identificacionComprador: e })
+    }
     const handleContribuyenteEspecial = (e) => {
         setData({ ...dataNota, contribuyenteEspecial: e })
     }
@@ -40,7 +42,7 @@ function InfoNotaCredito(props) {
         setData({ ...dataNota, fechaEmisionDoc: e })
     }
     const handleTotalSinImpuesto = (e) => {
-        setData({ ...dataNota , totalSinImpuesto: e })
+        setData({ ...dataNota, totalSinImpuesto: e })
     }
 
     const handleValorModificacion = (e) => {
@@ -53,27 +55,25 @@ function InfoNotaCredito(props) {
 
     return (
         <div  >
-
-            <div className='blockElement2'>
-                <div>
-                    <input className="styled-slider slider-progress" value={dataNota.fechaEmision} onChange={(e) => handleFechaEmision(e.target.value)} placeholder="Ambiente" type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.dirEstablecimiento} onChange={(e) => handleDirEstablecimiento(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.tipoIdentificacionComprador} onChange={(e) => handleTipoIdentificacion(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.razonSocialComprador} onChange={(e) => handleRazonSocial(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.contribuyenteEspecial} onChange={(e) => handleContribuyenteEspecial(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.obligadoContabilidad} onChange={(e) => handleObligadoContabilidad(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.rise} onChange={(e) => handleRise(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.codDocModificado} onChange={(e) => handleCodDocModificado(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.numDocModificado} onChange={(e) => handleNumDocModificado(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.fechaEmisionDoc} onChange={(e) => handleFechaEmision(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.totalSinImpuesto} onChange={(e) => handleTotalSinImpuesto(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.valorModificacion} onChange={(e) => handleValorModificacion(e.target.value)} type="text" />
-                    <input className="styled-slider slider-progress" value={dataNota.moneda} onChange={(e) => handleMoneda(e.target.value)} type="text" />
-
-                </div>
+            <div>
+                <div className="titleTributario">
+                    Informacion Nota de Credito
+                    </div>
+                <input className="styled-slider slider-progress" value={dataNota.fechaEmision} onChange={(e) => handleFechaEmision(e.target.value)} placeholder="Fecha Emision" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.dirEstablecimiento} onChange={(e) => handleDirEstablecimiento(e.target.value)} placeholder="Dir establecimiento" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.tipoIdentificacionComprador} onChange={(e) => handleTipoIdentificacion(e.target.value)} placeholder="Tipo identificacion comprador" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.razonSocialComprador} onChange={(e) => handleRazonSocial(e.target.value)} placeholder="Razon social comprador" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.contribuyenteEspecial} onChange={(e) => handleContribuyenteEspecial(e.target.value)} placeholder="Contribuyente Especial" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.identificacionComprador} onChange={(e) => handleIdentificacionComprador(e.target.value)} placeholder="Identificacion comprador" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.obligadoContabilidad} onChange={(e) => handleObligadoContabilidad(e.target.value)} placeholder="Obligado contabilidad" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.rise} onChange={(e) => handleRise(e.target.value)} placeholder="Rise" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.codDocModificado} onChange={(e) => handleCodDocModificado(e.target.value)} placeholder="Coddoc modificado" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.numDocModificado} onChange={(e) => handleNumDocModificado(e.target.value)} placeholder="NumDoc modificado" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.fechaEmisionDoc} onChange={(e) => handleFechaEmision(e.target.value)} placeholder="Fecha emisiondoc" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.totalSinImpuesto} onChange={(e) => handleTotalSinImpuesto(e.target.value)} placeholder="Total sin impuesto" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.valorModificacion} onChange={(e) => handleValorModificacion(e.target.value)} placeholder="Valor modificacion" type="text" />
+                <input className="styled-slider slider-progress" value={dataNota.moneda} onChange={(e) => handleMoneda(e.target.value)} placeholder="Moneda" type="text" />
             </div>
-
-        
         </div>
     )
 }
